@@ -8,13 +8,13 @@ const contatos = {
   logo: 'images/LUNAI.jpg',
   frase: 'Cada olhar revela sua essência única.',
   whatsapp: '5511950823379',
-  instagram: 'https://www.instagram.com/oticasln_/?utm_source=ig_web_button_share_sheet&igsi=ZDNlZDc0MzIxNw==',
+  facebook: 'https://www.facebook.com/share/19TjbEuo1P/?mibextid=wwXIfr',
 };
 
 document.addEventListener('DOMContentLoaded', () => {
   const links = {
     whatsapp: `https://wa.me/${contatos.whatsapp}`,
-    instagram: contatos.instagram
+    facebook: contatos.facebook
   };
 
   // Atualiza textos e dados da página a partir da configuração acima.
