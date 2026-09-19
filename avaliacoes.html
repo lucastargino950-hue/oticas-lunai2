@@ -68,8 +68,51 @@
         <div class="stars" aria-label="5 estrelas">★★★★★</div>
         <p class="review-text">Acabei de receber meu óculos, é lindo, amei! Com certeza irei comprar novos óculos com vocês, sem falar no atendimento maravilhoso que tive com a Ísis, uma atendente muito atenciosa, nota 1000. Muito obrigada! ❤️</p>
       </article>
+      <article class="review-card">
+        <div class="review-person">
+          <img src="images/5.jpeg" alt="Foto de Guilherme Marques" loading="lazy">
+          <div>
+            <h2>Guilherme Marques</h2>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 estrelas">★★★★★</div>
+        <button class="review-image-button" type="button" aria-label="Ampliar mensagem da avaliação de Guilherme Marques">
+          <img class="review-image" src="images/img 5 r.jpeg" alt="Mensagem da avaliação de Guilherme Marques" loading="lazy">
+        </button>
+      </article>
+
+      <article class="review-card">
+        <div class="review-person">
+          <img src="images/6.jpeg" alt="Foto de Maria de Fátima" loading="lazy">
+          <div>
+            <h2>Maria de Fatima</h2>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 estrelas">★★★★★</div>
+        <button class="review-image-button" type="button" aria-label="Ampliar mensagem da avaliação de Maria de Fatima">
+          <img class="review-image" src="images/img 6 r.jpeg" alt="Mensagem da avaliação de Maria de Fatima" loading="lazy">
+        </button>
+      </article>
+
+      <article class="review-card">
+        <div class="review-person">
+          <img src="images/7.jpeg" alt="Foto do cliente 7" loading="lazy">
+          <div>
+            <h2>Antônio</h2>
+          </div>
+        </div>
+        <div class="stars" aria-label="5 estrelas">★★★★★</div>
+        <button class="review-image-button" type="button" aria-label="Ampliar mensagem da avaliação de Antônio">
+          <img class="review-image" src="images/img 7 r.jpeg" alt="Mensagem da avaliação de Antônio" loading="lazy">
+        </button>
+      </article>
     </section>
   </main>
+
+  <div class="image-modal" id="image-modal" role="dialog" aria-modal="true" aria-label="Mensagem ampliada" hidden>
+    <button class="image-modal-close" type="button" aria-label="Fechar imagem ampliada">&times;</button>
+    <img id="modal-image" src="" alt="">
+  </div>
 
   <footer class="site-footer">
     <strong>Óticas LN</strong>
@@ -78,6 +121,35 @@
   <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.js"></script>
   <script>
     document.getElementById('review-year').textContent = new Date().getFullYear();
+
+    const imageModal = document.getElementById('image-modal');
+    const modalImage = document.getElementById('modal-image');
+    const closeModalButton = imageModal.querySelector('.image-modal-close');
+
+    function closeImageModal() {
+      imageModal.hidden = true;
+      document.body.classList.remove('modal-open');
+    }
+
+    document.querySelectorAll('.review-image-button').forEach((button) => {
+      button.addEventListener('click', () => {
+        const image = button.querySelector('img');
+        modalImage.src = image.src;
+        modalImage.alt = image.alt;
+        imageModal.hidden = false;
+        document.body.classList.add('modal-open');
+        closeModalButton.focus();
+      });
+    });
+
+    closeModalButton.addEventListener('click', closeImageModal);
+    imageModal.addEventListener('click', (event) => {
+      if (event.target === imageModal) closeImageModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !imageModal.hidden) closeImageModal();
+    });
+
     if (window.lucide) window.lucide.createIcons();
   </script>
 </body>
