@@ -78,6 +78,21 @@
   border-radius:50%;
   object-fit:cover
 }
+.review-avatar-placeholder {
+  display:grid;
+  width:52px;
+  height:52px;
+  flex:none;
+  place-items:center;
+  border:2px solid rgba(255,255,255,.75);
+  border-radius:50%;
+  color:var(--paper);
+  background:rgba(255,255,255,.18)
+}
+.review-avatar-placeholder svg {
+  width:27px;
+  height:27px
+}
 .review-person h2 {
   margin:0;
   font-size:15px
