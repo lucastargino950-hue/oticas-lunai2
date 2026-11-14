@@ -124,6 +124,12 @@
   cursor:zoom-in;
   background:transparent
 }
+.review-image-button.phone-screenshot {
+  padding:8px;
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:14px;
+  background:#eaf4f8
+}
 .review-image-button:focus-visible {
   outline:2px solid var(--paper);
   outline-offset:3px
@@ -134,6 +140,10 @@
   max-height:360px;
   object-fit:contain;
   transition:transform .2s ease
+}
+.phone-screenshot .review-image {
+  max-height:420px;
+  border-radius:8px
 }
 .review-image-button:hover .review-image {
   transform:scale(1.02)
